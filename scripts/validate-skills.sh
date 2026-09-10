@@ -57,7 +57,7 @@ while IFS= read -r f; do
 
   # frontmatter is parseable YAML (extract lines between the two --- delimiters)
   awk '/^---$/{c++; next} c==1' "$f" \
-    | node -e "const y=require('fs').readFileSync(0,'utf8'); if(!/^[a-z_-]+:\s/mi.test(y)) process.exit(1)" 2>/dev/null \
+    | "$node_bin" -e "const y=require('fs').readFileSync(0,'utf8'); if(!/^[a-z_-]+:\s/mi.test(y)) process.exit(1)" 2>/dev/null \
     || err "$f: frontmatter block missing or malformed (expected 'key: value' lines between '---' delimiters)"
 
   # frontmatter description length cap — keeps it a description, not a paragraph

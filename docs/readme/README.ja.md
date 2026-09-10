@@ -77,6 +77,9 @@
 | Skill | 何をするか | scope | 呼び出し元 | 読み取り専用 |
 |---|---|---|---|---|
 | 🗂️ **[re0-plan](../../skills/coil/re0-plan/SKILL.md)** | re0-loop の最初の turn の前に新しい iteration フォルダを開き、DESIGN/WORKFLOW/EVIDENCE を書き込む | 新しい cycle 一つ | ユーザー | |
+| 🎛️ **[re0-supervisor](../../skills/coil/re0-supervisor/SKILL.md)** | gate を一つずつ振り分け、状態と再試行上限を保存し、独立レビューを要求する | iteration 一つ | モデル | |
+| 🔧 **[re0-worker](../../skills/coil/re0-worker/SKILL.md)** | 指定された gate 一つを実装・検証し、安定した証拠レポートを返す | gate 一つ | モデル | |
+| 🔍 **[re0-reviewer](../../skills/coil/re0-reviewer/SKILL.md)** | 完了前に要件、diff、テスト、証拠を独立して cold-read する | iteration review | モデル | ✔ |
 | 🌀 **[re0-loop](../../skills/coil/re0-loop/SKILL.md)** | build → QA → re0-memo → re0-work ループを回し、コードではなく学習を複利化する | ループ全体 | モデル | |
 | 🧭 **[re0-memo](../../skills/coil/re0-memo/SKILL.md)** | 完了または失敗した cycle から教訓と anti-pattern を抽出する | 完了した cycle 一つ | モデル | |
 | 🧱 **[re0-work](../../skills/coil/re0-work/SKILL.md)** | 再利用に値した教訓だけを残して v0 からやり直す | やり直し一つ | モデル | |

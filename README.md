@@ -28,6 +28,17 @@ On **any** agent | Claude Code, Codex, OpenCode, Antigravity, Copilot, Cursor, G
 
 **Not sure?** Paste that command into whatever agent you're using and just say `set this up for me`, it'll do the rest.
 
+The managed `npx` route inherits the installed Node/npm and `skills` CLI requirements. If that route is unavailable on an older machine, clone or download this repository and use the dependency-free core installer:
+
+```bash
+git clone https://github.com/LilMGenius/paperthin.git
+cd paperthin
+./install.sh --doctor
+./install.sh --all --compat
+```
+
+`--claude` and `--codex` install one target; `--copy` avoids symlinks; `--compat` persists sequential orchestration in `~/.re0/paperthin-mode`; `--uninstall` removes only entries recorded in the installer's ownership manifest plus that mode preference. Existing unmanaged skills are skipped by default. `--overwrite` first moves a conflicting entry to a timestamped backup under `~/.re0/backups/`. Default symlinks track edits in the clone, so keep it at the same path; use `--copy` when the checkout will move or be deleted. The doctor reports runtimes and optional browser/agent capabilities without installing Homebrew, Node, browsers, or CLIs.
+
 ## The Map
 
 **How many artifacts, and across how much time?**
@@ -74,6 +85,9 @@ On **any** agent | Claude Code, Codex, OpenCode, Antigravity, Copilot, Cursor, G
 | Skill | What it does | Scope | Invoker | Read-only |
 |---|---|---|---|---|
 | 🗂️ **[re0-plan](./skills/coil/re0-plan/SKILL.md)** | Open a new iteration folder with DESIGN/WORKFLOW/EVIDENCE before re0-loop's first turn | one new cycle | user | |
+| 🎛️ **[re0-supervisor](./skills/coil/re0-supervisor/SKILL.md)** | Route one iteration gate at a time, persist status, bound retries, and require independent completion review | one iteration | model | |
+| 🔧 **[re0-worker](./skills/coil/re0-worker/SKILL.md)** | Implement and validate one supervisor-assigned gate, then return a stable evidence report | one gate | model | |
+| 🔍 **[re0-reviewer](./skills/coil/re0-reviewer/SKILL.md)** | Cold-read requirements, diff, tests, and evidence independently before completion | one iteration review | model | ✔ |
 | 🌀 **[re0-loop](./skills/coil/re0-loop/SKILL.md)** | Run the build → QA → re0-memo → re0-work loop so learning compounds, not code | the whole loop | model | |
 | 🧭 **[re0-memo](./skills/coil/re0-memo/SKILL.md)** | Pull the lessons and anti-patterns from a finished or failed cycle | one finished cycle | model | |
 | 🧱 **[re0-work](./skills/coil/re0-work/SKILL.md)** | Start over from v0, keeping only the lessons that earned reuse | one restart | model | |
@@ -87,6 +101,14 @@ On **any** agent | Claude Code, Codex, OpenCode, Antigravity, Copilot, Cursor, G
 | 🔺 **[prism](./skills/mesh/prism/SKILL.md)** | Split one artifact across independent lenses; return where they clash and the question that resolves it | one artifact | user | ✔ |
 
 *More on invocation: [docs/invocation.md](./docs/invocation.md)*
+
+## Three-role iteration workflow
+
+Start the casebook with `/re0-plan "REQ-015 …"`, then run `/re0-supervisor`. The supervisor reads the requirements, casebook, diff, tests, and prior evidence; assigns one gate to `re0-worker`; classifies its stable report; and repeats only within a five-cycle invocation budget. Apparent completion goes to `re0-reviewer`, which inspects the artifacts independently and applies `sip` before returning `PASS`, `FAIL`, or `INCONCLUSIVE`.
+
+On a host with an official separate-context agent mechanism, worker and reviewer run in isolated contexts. Otherwise the same roles run sequentially through saved reports in compatibility mode. Missing native agents, Node, Playwright, or Chromium never prevents the Markdown skills from installing. A system Chrome executable may be reported as a possible browser-E2E fallback, but paperthin does not claim it will satisfy a project's Playwright version or configuration.
+
+The supervisor handles local implementation failures without asking after every cycle. It stops for a requirement or architecture choice, destructive or production work, security-policy changes, paid services, lowered completion criteria, or the same root blocker appearing three times. Design failures recommend the user-invoked `hate`, `macrothink`, or `prism` rather than silently firing those opt-in judgment skills.
 
 ## The Problem
 

@@ -77,6 +77,9 @@ Sur **n'importe quel** agent | Claude Code, Codex, OpenCode, Antigravity, Copilo
 | Skill | Ce qu'il fait | Portée | Invocation | Lecture seule |
 |---|---|---|---|---|
 | 🗂️ **[re0-plan](../../skills/coil/re0-plan/SKILL.md)** | Ouvre un nouveau dossier d'itération avec son DESIGN/WORKFLOW/EVIDENCE avant le premier tour de re0-loop | un nouveau cycle | utilisateur | |
+| 🎛️ **[re0-supervisor](../../skills/coil/re0-supervisor/SKILL.md)** | Orchestre une gate à la fois, persiste l'état, borne les reprises et exige une revue indépendante | une itération | modèle | |
+| 🔧 **[re0-worker](../../skills/coil/re0-worker/SKILL.md)** | Implémente et valide une gate assignée puis rend un rapport de preuve stable | une gate | modèle | |
+| 🔍 **[re0-reviewer](../../skills/coil/re0-reviewer/SKILL.md)** | Relit indépendamment exigences, diff, tests et preuves avant la fin | une revue | modèle | ✔ |
 | 🌀 **[re0-loop](../../skills/coil/re0-loop/SKILL.md)** | Lance la boucle build → QA → re0-memo → re0-work pour que l'apprentissage compose, pas le code | toute la boucle | modèle | |
 | 🧭 **[re0-memo](../../skills/coil/re0-memo/SKILL.md)** | Extrait les leçons et anti-patterns d'un cycle terminé ou raté | un cycle terminé | modèle | |
 | 🧱 **[re0-work](../../skills/coil/re0-work/SKILL.md)** | Redémarre depuis v0 en gardant seulement les leçons qui ont mérité d'être réutilisées | un redémarrage | modèle | |

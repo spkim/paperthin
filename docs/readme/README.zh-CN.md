@@ -77,6 +77,9 @@
 | skill | 作用 | scope | Invoker | 只读 |
 |---|---|---|---|---|
 | 🗂️ **[re0-plan](../../skills/coil/re0-plan/SKILL.md)** | 在 re0-loop 第一轮之前打开新的 iteration 文件夹并写入它的 DESIGN/WORKFLOW/EVIDENCE | 一个新 cycle | 用户 | |
+| 🎛️ **[re0-supervisor](../../skills/coil/re0-supervisor/SKILL.md)** | 每次编排一个 gate，保存状态、限制重试并要求独立审查 | 一个 iteration | 模型 | |
+| 🔧 **[re0-worker](../../skills/coil/re0-worker/SKILL.md)** | 实现并验证 supervisor 指定的一个 gate，然后返回稳定的证据报告 | 一个 gate | 模型 | |
+| 🔍 **[re0-reviewer](../../skills/coil/re0-reviewer/SKILL.md)** | 完成前独立冷读 requirements、diff、测试和证据 | 一次 iteration 审查 | 模型 | ✔ |
 | 🌀 **[re0-loop](../../skills/coil/re0-loop/SKILL.md)** | 跑 build → QA → re0-memo → re0-work cycle，让学习复利，而不是代码膨胀 | 整个 cycle | 模型 | |
 | 🧭 **[re0-memo](../../skills/coil/re0-memo/SKILL.md)** | 从一次完成或失败的 cycle 中抽取教训和反模式 | 一个结束的 cycle | 模型 | |
 | 🧱 **[re0-work](../../skills/coil/re0-work/SKILL.md)** | 只保留赢得复用资格的教训，从 v0 重新开始 | 一次重启 | 模型 | |

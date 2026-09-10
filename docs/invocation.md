@@ -28,6 +28,8 @@ Default to model-invoked. A skill is user-invoked only when the model should nev
 
 Two skills stay model-invoked against the grain: `autobahn` (the model should autonomously carve risk-adjacent scope before execution) and `modelchk` (advisory capability sizing should be available before the model spends a run).
 
+The three orchestration roles are also model-invoked: `re0-supervisor` must be able to route work, while `re0-worker` and `re0-reviewer` must be reachable from that route. The supervisor may recommend a user-only judgment skill, but it cannot invoke one on the human's behalf.
+
 ## Dependencies between them
 
 Dependencies are expressed as **`/skill`-style prose invocation** ("Run the `/re0` skill"), not deep `../other-skill/FILE.md` cross-references. Shared reference docs live inside the skill that owns them; other skills reach that material by invoking the skill, not by linking across folders.

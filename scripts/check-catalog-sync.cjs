@@ -3,7 +3,7 @@
 /*
  * Catalog SSOT drift-guard.
  *
- * The 21-skill roster necessarily exists in two places — re0-upgrade's "Current catalog" (the
+ * The skill roster necessarily exists in two places — re0-upgrade's "Current catalog" (the
  * human/doc canonical) and scripts/catalog.cjs (the code copy the notice adapters share).
  * Physical single-sourcing is blocked by paperthin's self-containment (re0-upgrade must ship alone,
  * so it inlines its roster) and no-build-step invariants. This check is the enforcement: it fails

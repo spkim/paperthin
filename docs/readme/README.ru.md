@@ -77,6 +77,9 @@
 | Skill | Что делает | Scope | Invoker | read-only |
 |---|---|---|---|---|
 | 🗂️ **[re0-plan](../../skills/coil/re0-plan/SKILL.md)** | Открывает новую папку iteration с DESIGN/WORKFLOW/EVIDENCE до первого хода re0-loop | один новый cycle | user | |
+| 🎛️ **[re0-supervisor](../../skills/coil/re0-supervisor/SKILL.md)** | Направляет по одному gate, сохраняет состояние, ограничивает повторы и требует независимую проверку | одна iteration | model | |
+| 🔧 **[re0-worker](../../skills/coil/re0-worker/SKILL.md)** | Реализует и проверяет назначенный gate и возвращает стабильный отчет evidence | один gate | model | |
+| 🔍 **[re0-reviewer](../../skills/coil/re0-reviewer/SKILL.md)** | Независимо читает requirements, diff, тесты и evidence перед завершением | одна проверка | model | ✔ |
 | 🌀 **[re0-loop](../../skills/coil/re0-loop/SKILL.md)** | Запускает loop build → QA → re0-memo → re0-work, чтобы накапливалось learning, а не code | весь loop | model | |
 | 🧭 **[re0-memo](../../skills/coil/re0-memo/SKILL.md)** | Извлекает lessons и anti-patterns из завершенного или проваленного cycle | один завершенный cycle | model | |
 | 🧱 **[re0-work](../../skills/coil/re0-work/SKILL.md)** | Начинает заново с v0, оставляя только lessons, заслужившие reuse | один restart | model | |

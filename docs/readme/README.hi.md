@@ -77,6 +77,9 @@
 | Skill | क्या करता है | Scope | Invoker | read-only |
 |---|---|---|---|---|
 | 🗂️ **[re0-plan](../../skills/coil/re0-plan/SKILL.md)** | re0-loop की पहली turn से पहले नया iteration folder DESIGN/WORKFLOW/EVIDENCE के साथ खोलता है | एक नया cycle | user | |
+| 🎛️ **[re0-supervisor](../../skills/coil/re0-supervisor/SKILL.md)** | एक gate को route करता, state बचाता, retry सीमित करता और independent review मांगता है | एक iteration | model | |
+| 🔧 **[re0-worker](../../skills/coil/re0-worker/SKILL.md)** | supervisor का दिया एक gate implement और validate करके stable evidence report देता है | एक gate | model | |
+| 🔍 **[re0-reviewer](../../skills/coil/re0-reviewer/SKILL.md)** | completion से पहले requirements, diff, tests और evidence को independently cold-read करता है | एक review | model | ✔ |
 | 🌀 **[re0-loop](../../skills/coil/re0-loop/SKILL.md)** | build → QA → re0-memo → re0-work loop चलाता है ताकि learning compound करे, code नहीं | पूरा loop | model | |
 | 🧭 **[re0-memo](../../skills/coil/re0-memo/SKILL.md)** | finished या failed cycle से lessons और anti-patterns निकालता है | एक finished cycle | model | |
 | 🧱 **[re0-work](../../skills/coil/re0-work/SKILL.md)** | सिर्फ reuse कमाने वाले lessons रखते हुए v0 से restart करता है | एक restart | model | |

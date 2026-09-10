@@ -77,6 +77,9 @@
 | 스킬 | 하는 일 | 스코프 | 호출자 | 읽기 전용 |
 |---|---|---|---|---|
 | 🗂️ **[re0-plan](../../skills/coil/re0-plan/SKILL.md)** | re0-loop의 첫 turn 전에 새 iteration 폴더를 열고 DESIGN/WORKFLOW/EVIDENCE를 씁니다 | 새 사이클 하나 | 사용자 | |
+| 🎛️ **[re0-supervisor](../../skills/coil/re0-supervisor/SKILL.md)** | iteration gate를 하나씩 배정하고 상태와 재시도 한도를 관리한 뒤 독립 리뷰를 요구합니다 | iteration 하나 | 모델 | |
+| 🔧 **[re0-worker](../../skills/coil/re0-worker/SKILL.md)** | supervisor가 지정한 gate 하나를 구현·검증하고 안정적인 증거 보고서를 반환합니다 | gate 하나 | 모델 | |
+| 🔍 **[re0-reviewer](../../skills/coil/re0-reviewer/SKILL.md)** | 완료 전에 requirement, diff, 테스트, 증거를 독립적으로 cold-read합니다 | iteration 리뷰 하나 | 모델 | ✔ |
 | 🌀 **[re0-loop](../../skills/coil/re0-loop/SKILL.md)** | build → QA → re0-memo → re0-work 루프를 돌려 배움이 코드가 아니라 축적되게 합니다 | 전체 루프 | 모델 | |
 | 🧭 **[re0-memo](../../skills/coil/re0-memo/SKILL.md)** | 끝났거나 실패한 사이클에서 교훈과 anti-pattern을 뽑아냅니다 | 완료된 사이클 하나 | 모델 | |
 | 🧱 **[re0-work](../../skills/coil/re0-work/SKILL.md)** | 재사용할 자격을 얻은 교훈만 남기고 v0에서 다시 시작합니다 | 재시작 하나 | 모델 | |
@@ -90,6 +93,14 @@
 | 🔺 **[prism](../../skills/mesh/prism/SKILL.md)** | 아티팩트 하나를 독립적인 렌즈들로 쪼갠 뒤, 충돌하는 지점과 그것을 푸는 질문을 돌려줍니다 | 아티팩트 하나 | 사용자 | ✔ |
 
 *호출 방식은 [docs/invocation.md](../invocation.md)를 참고하세요.*
+
+## 3-agent iteration workflow
+
+`/re0-plan "REQ-015 …"`으로 casebook을 연 뒤 `/re0-supervisor`를 실행합니다. Supervisor는 requirement, casebook, diff, 테스트와 기존 증거를 읽고 현재 gate 하나를 `re0-worker`에 맡깁니다. 완료 후보는 `re0-reviewer`가 독립적으로 검토하며, 같은 원인의 blocker가 세 번 반복되거나 한 번의 supervisor 실행에서 worker cycle이 다섯 번에 도달하면 자동 반복을 멈춥니다.
+
+Host가 공식적인 별도 context agent 기능을 제공하면 worker와 reviewer를 분리해서 실행합니다. 해당 기능이 없거나 확실하지 않으면 저장된 report를 매개로 sequential compatibility mode를 사용합니다. Node, Playwright, Chromium, native agent 기능이 없어도 Markdown core skill 설치는 계속됩니다.
+
+오래된 환경에서는 repository를 받은 뒤 `./install.sh --doctor`로 먼저 진단하고 `./install.sh --all --compat`로 설치할 수 있습니다. `--claude` 또는 `--codex`로 대상을 제한할 수 있으며, 기존 unmanaged skill은 기본적으로 건너뜁니다. Big Sur와 특정 구형 CLI/browser 조합은 실제 장비에서 검증됐다고 주장하지 않으며 doctor의 WARN과 프로젝트별 검증이 필요합니다.
 
 <a id="the-problem"></a>
 ## 문제

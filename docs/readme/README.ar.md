@@ -77,6 +77,9 @@
 | Skill | ماذا يفعل | scope | Invoker | قراءة فقط |
 |---|---|---|---|---|
 | 🗂️ **[re0-plan](../../skills/coil/re0-plan/SKILL.md)** | يفتح مجلد iteration جديدا مع DESIGN/WORKFLOW/EVIDENCE قبل أول turn في re0-loop | cycle جديدة واحدة | user | |
+| 🎛️ **[re0-supervisor](../../skills/coil/re0-supervisor/SKILL.md)** | ينسق gates الدورة ويحفظ الحالة ويحد التكرار ويتطلب مراجعة مستقلة | iteration واحدة | model | |
+| 🔧 **[re0-worker](../../skills/coil/re0-worker/SKILL.md)** | ينفذ ويتحقق من gate واحدة يحددها supervisor ثم يعيد تقرير evidence ثابت | gate واحدة | model | |
+| 🔍 **[re0-reviewer](../../skills/coil/re0-reviewer/SKILL.md)** | يقرأ requirements وdiff والاختبارات وevidence بشكل مستقل قبل الإكمال | مراجعة iteration | model | ✔ |
 | 🌀 **[re0-loop](../../skills/coil/re0-loop/SKILL.md)** | يشغل حلقة build → QA → re0-memo → re0-work حتى يتراكم التعلم، لا الكود | الحلقة كلها | model | |
 | 🧭 **[re0-memo](../../skills/coil/re0-memo/SKILL.md)** | يستخرج الدروس والـ anti-patterns من cycle انتهت أو فشلت | cycle مكتملة | model | |
 | 🧱 **[re0-work](../../skills/coil/re0-work/SKILL.md)** | يبدأ من v0 من جديد، محتفظا فقط بالدروس التي استحقت إعادة الاستخدام | restart واحد | model | |

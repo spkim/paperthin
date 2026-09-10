@@ -77,6 +77,9 @@ Auf **jedem** Agent | Claude Code, Codex, OpenCode, Antigravity, Copilot, Cursor
 | Skill | Was er tut | Scope | Invoker | Nur Lesen |
 |---|---|---|---|---|
 | 🗂️ **[re0-plan](../../skills/coil/re0-plan/SKILL.md)** | Öffnet einen neuen Iterationsordner mit DESIGN/WORKFLOW/EVIDENCE, noch vor re0-loops erster Runde | ein neuer cycle | Nutzer | |
+| 🎛️ **[re0-supervisor](../../skills/coil/re0-supervisor/SKILL.md)** | Steuert jeweils ein Iterations-Gate, speichert Status, begrenzt Wiederholungen und verlangt unabhängige Prüfung | eine Iteration | Modell | |
+| 🔧 **[re0-worker](../../skills/coil/re0-worker/SKILL.md)** | Implementiert und prüft ein zugewiesenes Gate und liefert einen stabilen Evidenzbericht | ein Gate | Modell | |
+| 🔍 **[re0-reviewer](../../skills/coil/re0-reviewer/SKILL.md)** | Liest Anforderungen, Diff, Tests und Evidenz vor Abschluss unabhängig neu | ein Iterationsreview | Modell | ✔ |
 | 🌀 **[re0-loop](../../skills/coil/re0-loop/SKILL.md)** | Führt die build → QA → re0-memo → re0-work Schleife aus, damit Lernen komponiert, nicht Code | die ganze Schleife | Modell | |
 | 🧭 **[re0-memo](../../skills/coil/re0-memo/SKILL.md)** | Extrahiert Lektionen und Anti-Patterns aus einem abgeschlossenen oder gescheiterten cycle | ein abgeschlossener cycle | Modell | |
 | 🧱 **[re0-work](../../skills/coil/re0-work/SKILL.md)** | Startet von v0 neu und behält nur Lektionen, die Wiederverwendung verdient haben | ein Neustart | Modell | |

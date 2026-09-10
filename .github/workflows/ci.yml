@@ -23,3 +23,5 @@ jobs:
         run: node scripts/check-catalog-sync.cjs
       - name: Deploy-home SSOT drift-guard
         run: node scripts/check-deploy-home.cjs
+      - name: Installer compatibility fixtures
+        run: sh tests/install-compat.sh
